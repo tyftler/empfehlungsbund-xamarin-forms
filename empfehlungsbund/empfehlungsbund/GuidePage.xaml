@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="empfehlungsbund.GuidePage">
+  <AbsoluteLayout>
+    <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 AbsoluteLayout.LayoutFlags="All"
+                 VerticalOptions="Center"
+                 Padding="50">
+      <Entry x:Name="QueryEntry"
+             BackgroundColor="Silver"
+             Placeholder="Suchbegriff"
+             PlaceholderColor="Gray"
+             Text = "{Binding query}"
+             TextColor="Black" />
+      <Entry x:Name="LocationEntry"
+             BackgroundColor="Silver"
+             Placeholder="Ort"
+             PlaceholderColor="Gray"
+             Text = "{Binding location}"
+             TextColor="Black" />
+      <Grid>
+        <Button Grid.Column="0"
+                HorizontalOptions="Fill"
+                BackgroundColor="Gray"
+                Text="Geolocation"
+                TextColor="White"
+                Clicked="Geolocation" />
+        <Button Grid.Column="1"
+                HorizontalOptions="Fill"
+                BackgroundColor="Gray"
+                Text="Speichern"
+                TextColor="White"
+                Clicked="Save" />
+      </Grid>
+    </StackLayout>
+    <RelativeLayout x:Name="LoadingLayer"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    BackgroundColor="White"
+                    IsVisible="false">
+      <StackLayout RelativeLayout.XConstraint =
+                  "{ConstraintExpression Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.5,
+                    Constant=-20}"
+                   RelativeLayout.YConstraint =
+                  "{ConstraintExpression Type=RelativeToParent,
+                    Property=Height,
+                    Factor=0.5,
+                    Constant=-40}">
+        <Label HorizontalOptions="Center"
+               Text="Laden..." />
+        <ActivityIndicator IsRunning="true" />
+      </StackLayout>
+    </RelativeLayout>
+  </AbsoluteLayout>
+</ContentPage>

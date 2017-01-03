@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="empfehlungsbund.SwiperPage">
+  <AbsoluteLayout>
+    <StackLayout x:Name="BackgroundLayer"
+                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 AbsoluteLayout.LayoutFlags="All"
+                 BackgroundColor="White">
+      <Label x:Name="UninterestingLabel"
+             HorizontalOptions="Center"
+             VerticalOptions="Start"
+             Text="Uninteressant"
+             TextColor="Red"
+             FontSize="Medium" />
+      <Label VerticalOptions="CenterAndExpand" />
+      <Label x:Name="InterestingLabel"
+             HorizontalOptions="Center"
+             VerticalOptions="End"
+             Text="Interessant"
+             TextColor="Green"
+             FontSize="Medium" />
+    </StackLayout>
+    <StackLayout x:Name="SwiperLayer"
+                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 AbsoluteLayout.LayoutFlags="All" />
+    <Image Source="bars.png"
+           AbsoluteLayout.LayoutBounds="10,10,30,30">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OpenDashboard" />
+      </Image.GestureRecognizers>
+    </Image>
+    <Label x:Name="PaginationLabel"
+           AbsoluteLayout.LayoutBounds="1,10,AutoSize,AutoSize"
+           AbsoluteLayout.LayoutFlags="XProportional"
+           Margin="0,0,10,0"
+           FontSize="Medium" />
+  </AbsoluteLayout>
+</ContentPage>
